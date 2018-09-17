@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Neon Disco</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <iframe width="0" height="0" src="https://www.youtuberepeater.com/watch?v=K2P4Ed6G3gw&name=Sensory+Overload"></iframe>
+
+    <script>
+     var bleep = new Audio();
+     bleep.src = "bleep.mp3";
+    </script>
+    <style>
+        body a{
+          color:green;
+          font-size:30px;
+          index:1000;
+          position: fixed;
+          top:500px;
+          left:100px;
+          font-family: Arial Black;
+          text-decoration: none;
+          opacity: 0;
+          background-color:pink;
+          padding: 2px;
+        }
+
+        body a:hover{
+          opacity: 1;
+        }
+
+        body h4{
+          color:black;
+          font-family: Arial;
+          text-align: center;
+          index:1000;
+          top: 50px;
+          left: 50px;
+          padding: 3px;
+          position: fixed;
+          background-color: white;
+        }
+
+
+        #box1 a{
+          color:green;
+          font-size:30px;
+          index:1000;
+          position: fixed;
+          top:300px;
+          left:300px;
+          text-decoration: none;
+          opacity: 0;
+          background-color:pink;
+          padding: 2px;
+          font-family: Arial Black;
+        }
+
+        #box1 a:hover{
+          opacity: 1;
+        }
+
+        #box2 a{
+          color:green;
+          font-size:30px;
+          index:1000;
+          position: fixed;
+          top:600px;
+          left:300px;
+          text-decoration: none;
+          opacity: 0;
+          background-color:pink;
+          padding: 2px;
+          font-family: Arial Black;
+        }
+
+        #box2 a:hover{
+          opacity: 1;
+        }
+
+        #box3 a{
+          color:green;
+          font-size:30px;
+          index:1000;
+          position: fixed;
+          top:600px;
+          left:500px;
+          text-decoration: none;
+          opacity: 0;
+          background-color:pink;
+          padding: 2px;
+          font-family: Arial Black;
+        }
+
+        #box3 a:hover{
+          opacity: 1;
+        }
+
+        #box4 a{
+          color:green;
+          font-size:30px;
+          index:1000;
+          position: fixed;
+          top:450px;
+          left:]550px;
+          text-decoration: none;
+          opacity: 0;
+          background-color:pink;
+          padding: 2px;
+          font-family: Arial Black;
+        }
+
+        #box4 a:hover{
+          opacity: 1;
+        }
+
+        #box5 a{
+          color:green;
+          font-size:30px;
+          index:1000;
+          position: fixed;
+          top:600px;
+          left:900px;
+          text-decoration: none;
+          opacity: 0;
+          background-color:pink;
+          padding: 2px;
+          font-family: Arial Black;
+        }
+
+        #box5 a:hover{
+          opacity: 1;
+        }
+
+        #box6 a{
+          color:green;
+          font-size:30px;
+          index:1000;
+          position: fixed;
+          top:200px;
+          left:400px;
+          text-decoration: none;
+          opacity: 0;
+          background-color:pink;
+          padding: 2px;
+          font-family: Arial Black;
+        }
+
+        #box6 a:hover{
+          opacity: 1;
+        }
+
+        #box7 a{
+          color:green;
+          font-size:30px;
+          index:1000;
+          position: fixed;
+          top:50px;
+          left:800px;
+          text-decoration: none;
+          opacity: 0;
+          background-color:pink;
+          padding: 2px;
+          font-family: Arial Black;
+        }
+
+        #box7 a:hover{
+          opacity: 1;
+        }
+
+        #box8 a{
+          color:green;
+          font-size:30px;
+          index:1000;
+          position: fixed;
+          top:800px;
+          left:1000px;
+          text-decoration: none;
+          opacity: 0;
+          background-color:pink;
+          padding: 2px;
+          font-family: Arial Black;
+        }
+
+        #box8 a:hover{
+          opacity: 1;
+        }
+
+
+    </style>
+
+
+</head>
+
+<body>
+  <h4>CLICK around to escape the fluorescent trap.<br/>You may hit wrong pop-out "EXIT" buttons but try not to give up</h4>
+
+  <a href="https://www.huffingtonpost.com/jared-green/sensory-overload-how-peop_b_7653596.html ">EXIT</a>
+  <div id="box1"><a href="#" onmousedown="bleep.play()">EXIT</a></div>
+  <div id="box2"><a href="#" onmousedown="bleep.play()">EXIT</a></div>
+  <div id="box3"><a href="#" onmousedown="bleep.play()">EXIT</a></div>
+  <div id="box4"><a href="#" onmousedown="bleep.play()">EXIT</a></div>
+  <div id="box5"><a href="#" onmousedown="bleep.play()">EXIT</a></div>
+  <div id="box6"><a href="#" onmousedown="bleep.play()">EXIT</a></div>
+  <div id="box7"><a href="#" onmousedown="bleep.play()">EXIT</a></div>
+  <div id="box8"><a href="#" onmousedown="bleep.play()">EXIT</a></div>
+
+
+  <!-- Vertex Shader -->
+<script id="vertexShader" type="x-shader/x-vertex">
+  varying vec2 vUv;
+
+  void main() {
+      vUv = uv;
+
+      vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+
+      gl_Position = projectionMatrix * mvPosition;
+  }
+</script>
+
+<script id="sphereFragmentShader" type="x-shader/x-fragment">
+  uniform sampler2D texture;
+  uniform float time;
+  uniform vec2 resolution;
+
+  varying vec2 vUv;
+
+  void main( void ) {
+      vec2 uv = (vUv.xy * resolution * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
+
+      uv *= sin(length(uv * fract(time) * 5.0));
+
+      float r = 0.15 * abs(sin(time * cos(time * 1.0))) / abs(0.5 - length(uv));
+      float g = 0.18 * abs(sin(time * cos(time * 1.0)) + 1.0) / abs(0.46 - length(uv));
+      float b = 0.15 * abs(sin(time * cos(time * 1.0))) / abs(0.54 - length(uv));
+
+      gl_FragColor = vec4(vec3(r, g * 0.1, b), 1.0);
+  }
+</script>
+
+<!-- Fragment Shader -->
+<script id="fragmentShader" type="x-shader/x-fragment">
+  varying vec2 vUv;
+
+  uniform sampler2D texture;
+  uniform float time;
+  uniform vec2 resolution;
+  uniform vec3 baseColor;
+
+  const float PI = 3.14159;
+  const float N = 30.0;
+
+  float random(float n) {
+      return fract(abs(sin(n * 55.753) * 367.34));
+  }
+
+  void main(){
+      vec2 uv = (vUv.xy * resolution * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
+
+      uv *= 8.0;
+
+      float brightness = 0.0;
+      float speed = time * 1.0;
+
+      for (float i = 0.0;  i < N;  i++) {
+          brightness += 0.002 / abs(sin(PI * uv.x) * sin(PI * uv.y) * sin(PI * speed + random(floor(uv.x )) + random(floor(uv.y))));
+      }
+
+      gl_FragColor = vec4(baseColor * brightness, 1.0);
+  }
+</script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/96/three.min.js'></script>
+
+
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
